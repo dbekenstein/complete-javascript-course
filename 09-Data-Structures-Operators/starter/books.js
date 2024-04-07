@@ -224,6 +224,73 @@ const books = [
 ];
 
 /*
+// Logical Assignment Operators
+// 7.1
+for (let i = 0; i < books.length; i++) {
+  books[i].edition ||= 1;
+}
+
+// 7.2
+for (let i = 0; i < books.length; i++) {
+  books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+}
+*/
+/*
+// Nullish Operator (??)
+// 6.1
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent ??
+    console.log(`${books[i].title} provides no data about its online content`);
+}
+*/
+
+/*
+// Short Circuiting
+// 5.1
+const hasExamplesInJava = function (book) {
+  return book.programmingLanguage === 'Java' || 'no data available';
+};
+console.log(hasExamplesInJava(books[0]));
+console.log(hasExamplesInJava(books[1]));
+
+// 5.2
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent &&
+    console.log(`${books[i].title} provides online content`);
+}
+*/
+
+/*
+// Rest Pattern and Parameters
+// 4.1
+const [mainKey, ...rest] = books[0].keywords;
+console.log(mainKey, rest);
+
+// 4.2
+const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+console.log(bookPublisher, restOfTheBook);
+
+// 4.3
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors`);
+};
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+*/
+
+/*
+// spread operator
+// 3.1
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+
+// 3.2
+const spellWord = function (str) {
+  console.log(...str);
+};
+spellWord('JavaScript');
+*/
+
+/*
 // objects
 // 2.1
 const { title, author, ISBN } = books[0];
@@ -261,3 +328,5 @@ console.log(rating, ratingsCount);
 const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 */
+
+//
