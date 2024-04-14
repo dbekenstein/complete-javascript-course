@@ -50,7 +50,263 @@ const restaurant = {
     console.log(mainIngredient, otherIngredients);
   },
 };
+// =================================================================================
+/*
+// Strings part 3
 
+// Splitting and joining
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+const [firstName, lastName] = 'Dan Bekenstein'.split(' ');
+console.log(firstName, lastName);
+
+const newName = ['Mr.', firstName, lastName].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  let capitalized = [];
+
+  for (const i of names) {
+    capitalized.push(i[0].toUpperCase() + i.slice(1));
+    // capitalized.push(i.replace(i[0],i[0].toUpperCase()))
+  }
+  return capitalized.join(' ');
+};
+
+console.log(capitalizeName('jessica ann smith davis'));
+
+// Padding strings
+const message = 'Go to gate 23!';
+console.log(message.padStart(21, '+').padEnd(25, '-'));
+
+// Mask credit card
+const maskCreditCard = function (number) {
+  const str = number + '';
+  return str.slice(str.length - 4).padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(1234566352718));
+// Repeat
+const message2 = 'Bad weather...all departures delayed... | ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛬'.repeat(n)}`);
+};
+planesInLine(5);
+*/
+// =================================================================================
+/*
+// Strings part 2
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// fix capitalization in name
+const passenger = 'dAn';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing email
+const email = 'hello@dan.io';
+const loginEmail = ' hEllo@Dan.Io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+// Replace parts of strings
+const priceGB = '288,97#';
+const priceUS = priceGB.replace('#', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('neo'));
+console.log(plane2.startsWith('neo'));
+console.log(plane2.startsWith('Airbus'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the new Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food, and a pocket Knife.');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+*/
+// =================================================================================
+/*
+// Strings part 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+// Function receives an airplane seat and returns whether it is a middle seat or not
+// B and E are middle seats
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat');
+  } else {
+    console.log('You got lucky');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('13C');
+checkMiddleSeat('2E');
+*/
+// ==============================================
+/*
+// Map Interation
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+// Convert object to map
+console.log(Object.entries(restaurant.openingHours));
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap);
+
+// Quiz App
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer ${key}: ${value}`);
+  }
+}
+const answer = 3;
+// Number(prompt('Your Answer'));
+console.log(question.get(answer === question.get('correct')));
+
+// convert map to array
+console.log([...question]);
+console.log([...question.entries()]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+*/
+// ==============================================
+
+/*
+// map
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('closed', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('closed')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest.size);
+
+// need to define the arr first so that it is always referencing the same array
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest);
+console.log(rest.get(arr));
+
+rest.set(document.querySelector('h1'), 'Heading');
+*/
+// ==============================================
+/*
+// sets
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pasta',
+  'Pasta',
+  'Risotto',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+// elements are unique, order is irrelevent
+console.log(new Set('Dan'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+// real world example of sets
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+*/
 /*
 // Logical assignments operators
 const rest1 = {
@@ -78,6 +334,7 @@ rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<ANONYMOUS>';
 console.log(rest1, rest2);
 */
+// ==============================================
 /*
 // Nullish Coalescing Operator (??)
 restaurant.numGuests = 0;
@@ -123,6 +380,7 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 */
+// =================================================================================
 /*
 // Rest Pattern, Rest Parameters
 // Puts the remaining of the elements of the array in an array
@@ -163,7 +421,7 @@ add(...x);
 
 restaurant.orderPizza('mushrooms', 'bacon', 'sausage');
 */
-//
+//// =================================================================================
 /*
 // --------------- SPREAD OPERATORS:
 const arr = [7, 8, 9];
@@ -201,6 +459,7 @@ console.log(...str);
 
 // restaurant.orderPasta(...ingredients);
 */
+// =================================================================================
 /*
 // Objects
 const newRestaurant = { foundedIn: 2008, ...restaurant, founder: 'Guiseppe' };
@@ -210,6 +469,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name, restaurant.name);
 */
+// =================================================================================
 // --------------- DESTRUCTURING OBJECTS:
 
 /*
@@ -253,6 +513,7 @@ const {
 } = openingHours;
 console.log(o, c);
 */
+// =================================================================================
 /*
 ---------   DESTRUCTURING ARRAYS:
 

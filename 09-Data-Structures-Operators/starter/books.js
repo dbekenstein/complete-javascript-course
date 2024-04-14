@@ -222,7 +222,186 @@ const books = [
     highlighted: true,
   },
 ];
+// =================================================================================
+/*
+// Strings part 3
+// 17.1
+const logBookCategories = function (categories) {
+  categories = categories.split(';');
+  for (let category of categories) {
+    console.log(category);
+  }
+};
 
+const bookCategories =
+  'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+logBookCategories(bookCategories);
+
+// 17.2
+const getKeywordsAsString = function (books) {
+  const allKeywords = [];
+
+  for (let book of books) {
+    allKeywords.push(...book.keywords);
+  }
+  const uniqueKeyWords = new Set(allKeywords);
+  return [...uniqueKeyWords].join(';');
+};
+
+console.log(getKeywordsAsString(books));
+
+// 17.3
+const logBookChapters = function (chapters) {
+  for (let [name, page] of chapters) {
+    console.log(name.padEnd(20, '_') + ' ' + page);
+  }
+};
+
+const bookChapters = [
+  ['The Basics', 14],
+  ['Sorting', 254],
+  ['Searching', 372],
+  ['Graphs', 526],
+  ['Strings', 706],
+];
+logBookChapters(bookChapters);
+*/
+// =================================================================================
+/* 
+// Strings part 2
+// 16.1
+const normalizeWord = function (word) {
+  const temp = word.toLowerCase().trim();
+  return temp[0].toUpperCase() + temp.slice(1);
+};
+
+const normalizeAuthorName = function (author) {
+  author = author.trim();
+  const firstName = normalizeWord(author.slice(0, author.indexOf(' ')));
+  const lastName = normalizeWord(
+    author.slice(author.indexOf(' '), author.lastIndexOf(' '))
+  );
+  return firstName + ' ' + lastName;
+};
+console.log(normalizeAuthorName('  JuliE sussMan (Contributor)'));
+
+// 16.2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+console.log(books[1].title);
+console.log(newBookTitle);
+
+// 16.3
+const logBookTheme = function (title) {
+  const lowerTitle = title.toLowerCase();
+  const about = '';
+  if (lowerTitle.startsWith('computer')) {
+    about = 'computers';
+  } else if (
+    lowerTitle.includes('algorithms') &&
+    lowerTitle.includes('structures')
+  ) {
+    about = 'algorithms and data structures';
+  } else if (
+    (lowerTitle.endsWith('system') || lowerTitle.endsWith('systems')) &&
+    !lowerTitle.includes('operating')
+  ) {
+    about = 'some systems, but definitely not about operating systems';
+  }
+  console.log(`This book is about ${about}`);
+};
+*/
+// =================================================================================
+/*
+// Strings part 1
+// 15.1
+console.log(
+  books[0].ISBN[6],
+  books[0].ISBN[4],
+  books[0].ISBN[9],
+  books[0].ISBN[8]
+);
+
+// 15.2
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'));
+
+// 15.3
+console.log(quote.slice(quote.indexOf('boxing')));
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+
+// 15.4
+const isContributor = function (author) {
+  return author.lastIndexOf('(Contributor)') !== -1;
+};
+console.log(isContributor('Julie Sussman (Contributor)'));
+*/
+
+// =================================================================================
+/*
+// Maps Iteration
+// 14.1
+const firstBookMap = new Map(Object.entries(books[0]));
+console.log(firstBookMap);
+
+// 14.2
+for (const [key, value] of firstBookMap) {
+  if (typeof value === 'number') {
+    console.log(key);
+  }
+}
+*/
+/*
+// Maps Fundamentals
+// 13.1
+const bookMap = new Map([
+  ['title', 'Clean Code'],
+  ['author', 'Robert C. Martin'],
+]);
+console.log(bookMap);
+
+// 13.2
+bookMap.set('pages', 464);
+
+// 13.3
+console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`);
+
+// 13.4
+console.log(bookMap.size);
+
+// 13.5
+if (bookMap.has('author')) {
+  console.log('The author of the book is known');
+}
+*/
+/*
+// Sets
+// 12.1
+const allKeywords = [];
+for (const book of books) {
+  allKeywords.push(...book.keywords);
+}
+console.log(allKeywords);
+
+// 12.2
+const uniqueKeywords = new Set(allKeywords);
+console.log(uniqueKeywords);
+
+// 12.3
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science');
+
+// 12.4
+uniqueKeywords.delete('business');
+
+// 12.5
+const uniqueKeywordsArr = [...uniqueKeywords];
+console.log(uniqueKeywordsArr);
+
+// 12.6
+uniqueKeywords.clear();
+console.log(uniqueKeywords);
+*/
 /*
 // Looping Objects
 // 11.1
