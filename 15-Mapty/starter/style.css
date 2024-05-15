@@ -66,6 +66,16 @@ a:visited {
   width: 0;
 }
 
+.btn_workout__edit {
+  width: 70px;
+  text-align: center;
+}
+
+.btn_workout__delete {
+  width: 70px;
+  text-align: center;
+}
+
 .workout {
   background-color: var(--color-dark--2);
   border-radius: 5px;
@@ -87,7 +97,7 @@ a:visited {
 .workout__title {
   font-size: 1.7rem;
   font-weight: 600;
-  grid-column: 1 / -1;
+  grid-column: 1 / span 2;
 }
 
 .workout__details {
